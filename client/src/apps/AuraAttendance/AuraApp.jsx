@@ -25,23 +25,23 @@ const AuraApp = () => {
 
   const fetchStudents = async () => {
     const token = localStorage.getItem('token');
-    const res = await axios.get('http://localhost:3001/api/users/students', { headers: { Authorization: `Bearer ${token}` } });
+    const res = await axios.get('/api/users/students', { headers: { Authorization: `Bearer ${token}` } });
     setStudents(res.data);
     if (res.data.length > 0) setSelectedStudent(res.data[0].id);
   };
 
   const fetchData = async () => {
     const token = localStorage.getItem('token');
-    const attRes = await axios.get('http://localhost:3001/api/aura/attendance', { headers: { Authorization: `Bearer ${token}` } });
+    const attRes = await axios.get('/api/aura/attendance', { headers: { Authorization: `Bearer ${token}` } });
     setAttendance(attRes.data);
-    const grRes = await axios.get('http://localhost:3001/api/aura/grades', { headers: { Authorization: `Bearer ${token}` } });
+    const grRes = await axios.get('/api/aura/grades', { headers: { Authorization: `Bearer ${token}` } });
     setGrades(grRes.data);
   };
 
   const submitAttendance = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    await axios.post('http://localhost:3001/api/aura/attendance', {
+    await axios.post('/api/aura/attendance', {
         student_id: selectedStudent, date: attDate, status: attStatus
     }, { headers: { Authorization: `Bearer ${token}` } });
     setMsg('Attendance Recorded');
@@ -51,7 +51,7 @@ const AuraApp = () => {
   const submitGrade = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    await axios.post('http://localhost:3001/api/aura/grades', {
+    await axios.post('/api/aura/grades', {
         student_id: selectedStudent, subject: gradeSubject, score: gradeScore
     }, { headers: { Authorization: `Bearer ${token}` } });
     setMsg('Grade Recorded');

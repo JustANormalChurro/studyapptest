@@ -32,7 +32,7 @@ const TestTaking = ({ testId, onClose }) => {
 
   const fetchTest = async () => {
     const token = localStorage.getItem('token');
-    const res = await axios.get(`http://localhost:3001/api/ringdoor/tests/${testId}`, {
+    const res = await axios.get(`/api/ringdoor/tests/${testId}`, {
         headers: { Authorization: `Bearer ${token}` }
     });
     setTest(res.data);
@@ -47,7 +47,7 @@ const TestTaking = ({ testId, onClose }) => {
     if (!confirmSubmit) return;
 
     const token = localStorage.getItem('token');
-    const res = await axios.post('http://localhost:3001/api/ringdoor/submit', {
+    const res = await axios.post('/api/ringdoor/submit', {
         test_id: testId,
         answers
     }, {

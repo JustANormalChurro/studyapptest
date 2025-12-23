@@ -10,7 +10,7 @@ const SecretDBViewer = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    axios.get('http://localhost:3001/api/admin/tables', {
+    axios.get('/api/admin/tables', {
         headers: { Authorization: `Bearer ${token}` }
     }).then(res => setTables(res.data));
   }, []);
@@ -18,7 +18,7 @@ const SecretDBViewer = () => {
   const loadTable = async (table) => {
     setCurrentTable(table);
     const token = localStorage.getItem('token');
-    const res = await axios.get(`http://localhost:3001/api/admin/db/${table}`, {
+    const res = await axios.get(`/api/admin/db/${table}`, {
         headers: { Authorization: `Bearer ${token}` }
     });
     setData(res.data);

@@ -27,7 +27,7 @@ const TeacherRingdoor = () => {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      await axios.post('http://localhost:3001/api/ringdoor/tests',
+      await axios.post('/api/ringdoor/tests',
         { title, password, questions },
         { headers: { Authorization: `Bearer ${token}` } }
       );

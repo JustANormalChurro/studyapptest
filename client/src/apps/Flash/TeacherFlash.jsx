@@ -14,7 +14,7 @@ const TeacherFlash = () => {
 
   const fetchAssignments = async () => {
     const token = localStorage.getItem('token');
-    const res = await axios.get('http://localhost:3001/api/flash/assignments', {
+    const res = await axios.get('/api/flash/assignments', {
         headers: { Authorization: `Bearer ${token}` }
     });
     setAssignments(res.data);
@@ -23,7 +23,7 @@ const TeacherFlash = () => {
   const handleCreate = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    await axios.post('http://localhost:3001/api/flash/assignments', newAssignment, {
+    await axios.post('/api/flash/assignments', newAssignment, {
         headers: { Authorization: `Bearer ${token}` }
     });
     setNewAssignment({ title: '', description: '', due_date: '' });
@@ -33,7 +33,7 @@ const TeacherFlash = () => {
   const viewSubmissions = async (assignment) => {
     setSelectedAssignment(assignment);
     const token = localStorage.getItem('token');
-    const res = await axios.get(`http://localhost:3001/api/flash/submissions/${assignment.id}`, {
+    const res = await axios.get(`/api/flash/submissions/${assignment.id}`, {
         headers: { Authorization: `Bearer ${token}` }
     });
     setSubmissions(res.data);

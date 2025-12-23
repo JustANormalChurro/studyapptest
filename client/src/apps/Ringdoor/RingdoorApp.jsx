@@ -17,7 +17,7 @@ const RingdoorApp = () => {
 
   const fetchTests = async () => {
     const token = localStorage.getItem('token');
-    const res = await axios.get('http://localhost:3001/api/ringdoor/tests', {
+    const res = await axios.get('/api/ringdoor/tests', {
         headers: { Authorization: `Bearer ${token}` }
     });
     setTests(res.data);

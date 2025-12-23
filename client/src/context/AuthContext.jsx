@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      axios.get('http://localhost:3001/api/auth/me', {
+      axios.get('/api/auth/me', {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => {
@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password, teacher_code) => {
     try {
-      const res = await axios.post('http://localhost:3001/api/auth/login', { email, password, teacher_code });
+      const res = await axios.post('/api/auth/login', { email, password, teacher_code });
       localStorage.setItem('token', res.data.token);
       setUser(res.data.user);
       return { success: true };
