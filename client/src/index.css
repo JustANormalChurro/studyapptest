@@ -1,0 +1,198 @@
+:root {
+  --bg-color: #f0f0f0;
+  --header-bg: #cccccc;
+  --header-text: #000000;
+  --border-color: #888888;
+  --window-bg: #ffffff;
+  --text-color: #000000;
+  --link-color: #0000cc;
+  --btn-bg: #dddddd;
+  --btn-border: #999999;
+}
+
+body {
+  font-family: 'Verdana', 'Tahoma', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+  margin-top: 0;
+}
+
+/* 2000s Basic UI Elements */
+.window {
+  background: var(--window-bg);
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.title-bar {
+  background: linear-gradient(to right, #000080, #1084d0);
+  color: white;
+  padding: 2px 5px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.window-content {
+  padding: 10px;
+}
+
+button {
+  background: var(--btn-bg);
+  border: 2px outset var(--btn-border);
+  padding: 4px 10px;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  color: black;
+}
+
+button:active {
+  border: 2px inset var(--btn-border);
+}
+
+input, textarea, select {
+  border: 2px inset var(--border-color);
+  padding: 2px;
+  font-family: inherit;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border-color);
+}
+
+th, td {
+  border: 1px solid var(--border-color);
+  padding: 4px;
+  text-align: left;
+}
+
+th {
+  background: #eeeeee;
+}
+
+/* Custom Loading Wheel */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.loading-wheel {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #000080;
+  /* Square-ish animation for old feel */
+  animation: spin 1s steps(8) infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Layout */
+.portal-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.portal-header {
+  background: var(--header-bg);
+  border-bottom: 2px solid var(--border-color);
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portal-body {
+  flex: 1;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.app-icon {
+  width: 64px;
+  height: 64px;
+  background: #ddd;
+  border: 1px solid #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.app-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.app-item:hover .app-icon {
+  background: #eee;
+  border-color: #666;
+}
+
+/* Login Screen */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #e0e0e0;
+}
+
+.login-box {
+  width: 300px;
+}
+
+/* Fullscreen App Mode */
+.app-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-toolbar {
+  background: #ddd;
+  border-bottom: 1px solid #999;
+  padding: 5px;
+  display: flex;
+  gap: 10px;
+}
+
+.testisd-logo {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 20px;
+  color: #000080;
+}
