@@ -219,13 +219,6 @@ app.get('/api/admin/tables', authenticate, authorizeTeacher, async (req, res) =>
     res.json(tables);
 });
 
-// Serve Frontend
-app.use(express.static(path.join(__dirname, '../client/dist')));
-
-app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-});
-
 const seedIfEmpty = async () => {
   try {
     const count = await User.count();
